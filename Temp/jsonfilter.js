@@ -45,7 +45,15 @@
 
 		var filter;
 		if(opType.toLowerCase() === 'like') {
-			filter = function(item) {return true;}
+			if(filterValue.startsWith('%') && filterValue.endsWith('%')) {
+				filter = function(item) {return item[filterName].indexOf(filterValue.substring(1, filterValue.length-1)) > -1;}
+			} else if(filterValue.startsWith('%')) {
+				filter = function(item) {return item[filterName].endsWith(filterValue.substring(1));}
+			} else if(filterValue.endsWith('%')) {
+				filter = function(item) {return item[filterName].startsWith(filterValue.substring(0, filterValue.length-1));}
+			} else {
+				filter = function(item) {return item[filterName] === filterValue;}
+			}
 		} else {
 			filter = new Function('item', 'return item["'+filterName+'"]  '+opType+'  '+filterValue+';');
 		}
@@ -87,31 +95,3 @@
 	window.JsonFilter = JsonFilter;
 
 })(window, undefined)
-
-
-
-
-
-window.addEventListener('load', function() {
-	var data = [
-		{id: 1, name: 'aaa', age: 15, desc: 'aaaaa'},
-		{id: 2, name: 'bbb', age: 17, desc: 'bbbbb'},
-		{id: 3, name: 'ccc', age: 34, desc: 'ccccc'},
-		{id: 4, name: 'ddd', age: 22, desc: 'ddddd'},
-		{id: 5, name: 'eee', age: 41, desc: 'eeeee'},
-		{id: 6, name: 'fff', age: 12, desc: 'fffff'}
-	];
-
-	console.log('before filter:');
-	data && data.forEach(function(item) {
-		console.log(item);
-	});
-
-	var retData = new JsonFilter(data).filter('age <> 12').filter('age <= 34').sort('name DESC').end();
-
-	console.log('after filter:');
-	retData.forEach(function(item) {
-		console.log(item);
-	});
-
-}, false);
