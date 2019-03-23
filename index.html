@@ -7,12 +7,13 @@
 	<meta name="author" content="Seasand-yyh">
 	<meta name="description" content="QExam">
 	<meta http-equiv="keywords" content="QExam">
-	<title>QExam</title>
+	<title>大观园</title>
 	<link type="image/x-icon" rel="shortcut icon" href="./favicon.ico">
 	<link type="image/x-icon" rel="icon" href="./favicon.ico">
 	<link rel="stylesheet" type="text/css" href="./css/normalize.css">
 	<link rel="stylesheet" type="text/css" href="./css/app.css">
 	<script type="text/javascript" src="./js/jquery-1.11.0.min.js"></script>
+	<script type="text/javascript" src="./js/jsonfilter.js"></script>
 	<script type="text/javascript" src="./js/app.js"></script>
 	<script type="text/javascript">
 		$(function() {
@@ -21,6 +22,25 @@
 	</script>
 </head>
 <body>
-
+	<div class="wrapper">
+		<div class="top top-bg">
+			<div class="container">
+				<img class="logo" src="images/logo.png"/>
+				<div class="search-area">
+					<span class="search-key-wrap">
+						<input id="search-key" class="search-key" value="" maxlength="255" autocomplete="off"/>
+					</span>
+					<span class="search-btn-wrap">
+						<input id="search-btn" class="search-btn" type="button" value="搜 索"/>
+					</span>
+				</div>
+			</div>
+		</div>
+		<div class="main">
+			<div class="container">
+				<ul id="list-cont" class="list-cont"></ul>
+			</div>
+		</div>
+	</div>
 </body>
 </html>
