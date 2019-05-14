@@ -5,9 +5,6 @@
  */
 var app = {
 
-	//本地项目根路径.
-	base_path: 'https://seasand-yyh.github.io/QExam/projects/',
-
 	//列表数据缓存.
 	listdata: [],
 
@@ -40,9 +37,11 @@ var app = {
 
 	//渲染列表.
 	renderList: function(data) {
+		var pageURL = window.location.href;
+		var baseURL = pageURL.substring(0, pageURL.indexOf('index.html')) + 'projects';
 		var str = [];
 		data && data.forEach(function(item) {
-			var addr = item.external === 1 ? item.path : app.base_path + item.path;
+			var addr = item.external === 1 ? item.path : baseURL + item.path;
 			var html = '';
 			html += '<li addr="'+addr+'" onclick="app.openListPage(this)">';
 			html += '<span class="list-cont-title" title="'+item.title+'">'+item.title+'</span>';
