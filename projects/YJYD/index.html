@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>My App</title>
+		<link rel="stylesheet" href="./css/framework7.material.min.css"/>
+    <link rel="stylesheet" href="./css/framework7.material.colors.min.css"/>
+		<link rel="stylesheet" href="./css/toast.css"/>
+    <link rel="stylesheet" href="./css/app.css"/>
+  </head>
+  <body class="layout-dark">
+    <div class="statusbar-overlay"></div>
+    <div class="views">
+      <div class="view view-main">
+        <div class="pages">
+          <div data-page="index" class="page navbar-fixed toolbar-fixed">
+            <!-- NavBar -->
+            <div class="navbar theme-black">
+              <div class="navbar-inner">
+                <div class="left sliding" style="padding-left: 16px;">粤讲粤掂</div>
+                <div class="right">
+                  <a href="add.html" class="link icon-only"><i class="icon icon-plus"></i></a>
+                </div>
+              </div>
+            </div>
+            <!-- SearchBar -->
+            <form class="searchbar" style="background-color: #212121;">
+              <div class="searchbar-input">
+                <input type="search" placeholder="输入关键字">
+                <a href="#" class="searchbar-clear"></a>
+              </div>
+            </form>
+            <!-- SearchBar Overlay -->
+            <div class="searchbar-overlay"></div>
+            <!-- PageContent -->
+            <div class="page-content pull-to-refresh-content infinite-scroll" data-ptr-distance="44" data-distance="50">
+              <div class="pull-to-refresh-layer">
+                <div class="preloader"></div>
+                <div class="pull-to-refresh-arrow"></div>
+              </div>
+              <div class="content-block searchbar-not-found">
+                <div class="content-block-inner">无内容</div>
+              </div>
+              <div class="list-block list-block-search searchbar-found">
+                <ul id="listCont">
+                  
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+		<script type="text/javascript" src="./js/framework7.min.js"></script>
+		<script type="text/javascript" src="./js/toast.js"></script>
+    <script type="text/javascript" src="./js/common.js"></script>
+		<script type="text/javascript" src="./js/jsonfilter.js"></script>
+    <script type="text/javascript" src="./js/app.js"></script>
+    <script type="text/javascript">
+			document.addEventListener("plusready", function() {
+				app.init();
+			}, false);
+    </script>
+  </body>
+</html>
